@@ -12,5 +12,5 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:src="@drawable/symbol"/>
-
+<!--이미지 drawable에서 가져옴-->
 </LinearLayout>

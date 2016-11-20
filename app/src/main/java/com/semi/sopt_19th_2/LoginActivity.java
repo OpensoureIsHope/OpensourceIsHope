@@ -1,6 +1,7 @@
 package com.semi.sopt_19th_2;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,15 +15,16 @@ public class LoginActivity extends AppCompatActivity {
     EditText inputPwdEdit;
     Button loginBtn;
     Button signUpBtn;
-
+    Button goGithubBtn;
     /**
      * 아직 2차세미나!!
      * 서버연동을 모르기때문에
      * 임시로 id, pwd를 넣어준다
      */
 
-    String id = "sopt1234";
-    String pwd = "123456";
+    String id = "minhang7";
+    String pwd = "123123";
+/*minhang7, 123123으로 수정*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,8 @@ public class LoginActivity extends AppCompatActivity {
         inputPwdEdit = (EditText)findViewById(R.id.inputPwdEdit);
         loginBtn = (Button)findViewById(R.id.loginBtn);
         signUpBtn = (Button)findViewById(R.id.signUpBtn);
+        goGithubBtn = (Button)findViewById(R.id.goGitub);
+        /*  findViewById로 id부여한 view들을 가져와서 사용할수 있게 한다.*/
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,6 +45,9 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"ID를 입력해주세요",Toast.LENGTH_SHORT).show();
                     return;
                 }
+
+                /* toast : 안드로이드에서 간단한 메시지를 잠깐 보여줄수 있는 방법.*/
+
                 if(inputPwdEdit.length() == 0){
                     Toast.makeText(getApplicationContext(),"Pwd를 입력해주세요",Toast.LENGTH_SHORT).show();
                     return;
@@ -65,6 +72,14 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        // 사인업 버튼 누르면 회원가입 화면으로 넘어감.
 
+        goGithubBtn.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View view) {
+                Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/OpensoureIsHope/OpensourceIsHope"));
+                startActivity(myIntent);
+        }
+        });
     }
 }
