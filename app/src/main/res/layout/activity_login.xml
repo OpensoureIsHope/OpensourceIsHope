@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
             android:singleLine="true"
-            android:hint="ID"/>
+            android:hint="아이디"/>
 
 
         <EditText
@@ -46,7 +46,7 @@
             android:layout_marginTop="10dp"
             android:singleLine="true"
             android:inputType="numberPassword"
-            android:hint="Password"/>
+            android:hint="패스워드"/>
     </LinearLayout>
 
 
