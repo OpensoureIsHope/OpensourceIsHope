@@ -37,11 +37,11 @@ public class MyPageActivity extends AppCompatActivity {
         String major = getData.getExtras().getString("major");
         String part = getData.getExtras().getString("part");
         String gender = getData.getExtras().getString("gender");
-        String img = getData.getExtras().getString("img");
+        String img = getData.getExtras().getString("img"); // img count(int)를 string으로 바꿈.
 
         if(img.equals("0"))
             myImgView.setImageResource(R.drawable.ic__teach_mypage);
-        else if(img.equals("0"))
+        else if(img.equals("1")) // image count의 값 수정 -> 오류수정
             myImgView.setImageResource(R.drawable.ic_ready_mypage);
         else
             myImgView.setImageResource(R.drawable.ic_hobby_mypage);

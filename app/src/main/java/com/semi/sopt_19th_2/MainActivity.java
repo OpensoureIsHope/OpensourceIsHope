@@ -67,22 +67,22 @@ public class MainActivity extends AppCompatActivity {
                 if(editMajor.length() == 0) {
                     Toast.makeText(getApplicationContext(), "전공을 입력해주세요.", Toast.LENGTH_SHORT).show();
                     return;
-                }
+                } // 각 항목을 입력하기 위한 창.
 
                 RadioButton tempPart = (RadioButton) findViewById(groupPart.getCheckedRadioButtonId());
-                RadioButton tempGender = (RadioButton) findViewById(groupGender.getCheckedRadioButtonId());
+                RadioButton tempGender = (RadioButton) findViewById(groupGender.getCheckedRadioButtonId()); // check상태를 확인 할 수 있는 radio button
                 String part = tempPart.getText().toString();
-                String gender = tempGender.getText().toString();
+                String gender = tempGender.getText().toString(); // text를 입력 한 것을 string으로 바꿔줌 -> 값을 넘겨줄 수 있다.
 
-                Intent intent  = new Intent(getApplicationContext(),ImageSelectActivity.class);
-                intent.putExtra("id",String.valueOf(editId.getText()));
+                Intent intent  = new Intent(getApplicationContext(),ImageSelectActivity.class); // intent : activity의 값을 넘겨줌.
+                intent.putExtra("id",String.valueOf(editId.getText())); // putExtra : intent의 값을 보여줌.
                 intent.putExtra("pwd",String.valueOf(editPwd.getText()));
                 intent.putExtra("name",String.valueOf(editName.getText()));
                 intent.putExtra("major",String.valueOf(editMajor.getText()));
                 intent.putExtra("part",part);
                 intent.putExtra("gender",gender);
 
-                startActivity(intent);
+                startActivity(intent); // intent 시작.
                 finish();
             }
         });

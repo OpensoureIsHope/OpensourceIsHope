@@ -21,7 +21,7 @@ public class ImageSelectActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_image_select);
+        setContentView(R.layout.activity_image_select); // activity_image_select.xml을 가져온다.
 
         preImgArea = (LinearLayout)findViewById(R.id.preImgBtn);
         nextImgArea = (LinearLayout)findViewById(R.id.nextImgBtn);
@@ -30,7 +30,7 @@ public class ImageSelectActivity extends AppCompatActivity {
 
         preImgArea.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) { // 이전버튼을 클릭하면 imgCount가 감소한다.
                 if(imgCount > 0 ){
                     imgCount--;
                     if(imgCount == 0){
@@ -49,7 +49,7 @@ public class ImageSelectActivity extends AppCompatActivity {
 
         nextImgArea.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) { // 다음버튼을 클릭하면 imgCount가 증가한다.
                 if(imgCount < 3 ){
                     imgCount++;
                     if(imgCount == 0){
@@ -82,7 +82,7 @@ public class ImageSelectActivity extends AppCompatActivity {
                             // 확인 버튼 클릭시 설정
                             public void onClick(DialogInterface dialog, int whichButton){
                                 Intent getData = getIntent();
-                                Intent intent = new Intent(getApplicationContext(),MyPageActivity.class);
+                                Intent intent = new Intent(getApplicationContext(),MyPageActivity.class); // 확인을 누르면 myPageActivity page로 넘어간다.
 
                                 intent.putExtra("id",getData.getExtras().getString("id"));
                                 intent.putExtra("pwd",getData.getExtras().getString("pwd"));
@@ -103,7 +103,7 @@ public class ImageSelectActivity extends AppCompatActivity {
                         });
 
                 AlertDialog dialog = builder.create();    // 알림창 객체 생성
-                dialog.show();    // 알림창 띄우기
+                dialog.show();
 
 
             }

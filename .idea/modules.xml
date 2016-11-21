@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/OSS.iml" filepath="$PROJECT_DIR$/OSS.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/OpensourceIsHope.iml" filepath="$PROJECT_DIR$/OpensourceIsHope.iml" />
+>>>>>>> test
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
