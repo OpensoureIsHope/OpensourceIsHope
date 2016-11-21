@@ -16,10 +16,10 @@ public class SplashActivity extends AppCompatActivity {
         Handler hd = new Handler();
         hd.postDelayed(new Runnable() {             // 핸들러가 일정시간 지연뒤 post 합니다.
             @Override
-        
+
 
             public void run() { //다른 엑티비티로 전환
-                Intent intent = new Intent(getApplicationContext(),LoginActivity.class); //LoginActivity로 전환  // 다음에 불러올 class 파일을 지정합니다.
+                Intent intent = new Intent(getApplicationContext(),LoginActivity.class); // 다음에 불러올 class 파일을 지정합니다.
 
                 startActivity(intent);
                 finish(); //activity 끝냄
