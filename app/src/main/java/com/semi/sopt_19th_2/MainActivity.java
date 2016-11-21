@@ -33,8 +33,8 @@ public class MainActivity extends AppCompatActivity {
         editPwd = (EditText)findViewById(R.id.editPwd);
         editName = (EditText)findViewById(R.id.editName);
         editMajor = (EditText)findViewById(R.id.editMajor);
-        groupPart = (RadioGroup)findViewById(R.id.radioPart);
-        groupGender = (RadioGroup)findViewById(R.id.radioGender);
+        groupPart = (RadioGroup)findViewById(R.id.radioPart); // 라디오버튼 성별 부분 바운딩
+        groupGender = (RadioGroup)findViewById(R.id.radioGender); // 라디오버튼 파트부분 바운딩
         submitBtn = (Button)findViewById(R.id.submitBtn);
         resetBtn = (Button)findViewById(R.id.resetBtn);
 
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) { // 제출버튼 누름
 
                 /**
                  * id/pwd/이름/전공을 입력했는지 체크
@@ -69,23 +69,27 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 } // 각 항목을 입력하기 위한 창.
 
-                RadioButton tempPart = (RadioButton) findViewById(groupPart.getCheckedRadioButtonId());
-                RadioButton tempGender = (RadioButton) findViewById(groupGender.getCheckedRadioButtonId()); // check상태를 확인 할 수 있는 radio button
-                String part = tempPart.getText().toString();
-                String gender = tempGender.getText().toString(); // text를 입력 한 것을 string으로 바꿔줌 -> 값을 넘겨줄 수 있다.
 
-                Intent intent  = new Intent(getApplicationContext(),ImageSelectActivity.class); // intent : activity의 값을 넘겨줌.
-                intent.putExtra("id",String.valueOf(editId.getText())); // putExtra : intent의 값을 보여줌.
-                intent.putExtra("pwd",String.valueOf(editPwd.getText()));
-                intent.putExtra("name",String.valueOf(editName.getText()));
-                intent.putExtra("major",String.valueOf(editMajor.getText()));
-                intent.putExtra("part",part);
-                intent.putExtra("gender",gender);
 
-                startActivity(intent); // intent 시작.
-                finish();
-            }
-        });
+                // 빈칸이 있으면 메세지 출력하고 리스너 종료
+
+                RadioButton tempPart = (RadioButton) findViewById(groupPart.getCheckedRadioButtonId()); // 선택된 라디오 버튼의 ID값을 반환한다.
+        RadioButton tempGender = (RadioButton) findViewById(groupGender.getCheckedRadioButtonId()); // 선택된 라디오 버튼의 ID값을 반환한다.
+        String part = tempPart.getText().toString(); // 그 ID의 text부분 부분을 가져와서 대입한다.
+        String gender = tempGender.getText().toString(); // 그 ID의 text부분 부분을 가져와서 대입한다.
+
+        Intent intent  = new Intent(getApplicationContext(),ImageSelectActivity.class); // 이미지 고르기 부분 activity 으로 전환하는 intent
+        intent.putExtra("id",String.valueOf(editId.getText())); // minhang7을 id에 실어서 넘긴거.
+        intent.putExtra("pwd",String.valueOf(editPwd.getText()));
+        intent.putExtra("name",String.valueOf(editName.getText()));
+        intent.putExtra("major",String.valueOf(editMajor.getText()));
+        intent.putExtra("part",part);
+        intent.putExtra("gender",gender);
+        // 각 부분의 텍스트 부분을 가져와서 imageselect 액티비티에 추가로 넘김 "id" ... 에 실어서 보냄
+        startActivity(intent);// 전환
+        finish();
+    }
+});
 
 
 
@@ -101,10 +105,11 @@ public class MainActivity extends AppCompatActivity {
                 editPwd.setText("");
                 editName.setText("");
                 editMajor.setText("");
-                groupGender.clearCheck();
-                groupPart.clearCheck();
+                groupGender.check(R.id.man);
+                groupPart.check(R.id.androidPart);
             }
         });
+        //  리셋버튼 누르면 다초기화
 
     }
 }

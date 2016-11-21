@@ -15,4 +15,6 @@
         android:src="@drawable/pikachu"
         android:id="@+id/imageView" />
 
+<!--이미지 drawable에서 가져옴-->
+
 </LinearLayout>
