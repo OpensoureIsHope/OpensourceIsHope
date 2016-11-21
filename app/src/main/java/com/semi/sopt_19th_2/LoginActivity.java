@@ -27,7 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_login);  // activity_login.xml을 가져온다.
 
         inputIdEdit = (EditText)findViewById(R.id.inputIdEdit);
         inputPwdEdit = (EditText)findViewById(R.id.inputPwdEdit);
@@ -50,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
                 String inputId = String.valueOf(inputIdEdit.getText());
                 String inputPwd = String.valueOf(inputPwdEdit.getText());
 
-                if(inputId.equals(id) && inputPwd.equals(pwd)){
+                if(inputId.equals(id) && inputPwd.equals(pwd)){  // id와 pwd가 같은지 확인하는 함수
                     Toast.makeText(getApplicationContext(),"로그인 성공!!!",Toast.LENGTH_SHORT).show();
                 }
                 else

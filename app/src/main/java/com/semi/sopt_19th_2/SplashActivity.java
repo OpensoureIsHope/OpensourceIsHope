@@ -15,7 +15,7 @@ public class SplashActivity extends AppCompatActivity {
         Handler hd = new Handler();
         hd.postDelayed(new Runnable() {
             @Override
-            public void run() {
+            public void run() { // handler를 이용해서 display에 보여줌.
                 Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
                 startActivity(intent);
                 finish();
