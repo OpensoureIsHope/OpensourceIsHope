@@ -52,6 +52,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 if(inputId.equals(id) && inputPwd.equals(pwd)){
                     Toast.makeText(getApplicationContext(),"로그인 성공!!!",Toast.LENGTH_SHORT).show();
+
                 }
                 else
                     Toast.makeText(getApplicationContext(),"로그인 실패!!!",Toast.LENGTH_SHORT).show();
