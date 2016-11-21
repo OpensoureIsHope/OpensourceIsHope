@@ -16,20 +16,14 @@ public class SplashActivity extends AppCompatActivity {
         Handler hd = new Handler();
         hd.postDelayed(new Runnable() {             // 핸들러가 일정시간 지연뒤 post 합니다.
             @Override
-<<<<<<< HEAD
-            public void run() {
-                Intent intent = new Intent(getApplicationContext(),LoginActivity.class);    // 다음에 불러올 class 파일을 지정합니다.
-=======
+
             public void run() { //다른 엑티비티로 전환
-                Intent intent = new Intent(getApplicationContext(),LoginActivity.class); //LoginActivity로 전환
->>>>>>> MH
+                Intent intent = new Intent(getApplicationContext(),LoginActivity.class); //LoginActivity로 전환  // 다음에 불러올 class 파일을 지정합니다.
                 startActivity(intent);
                 finish(); //activity 끝냄
             }
-<<<<<<< HEAD
         }, 2000);       // 2000의 단위를 ms로, 2초를 의미합니다.
-=======
-        }, 2000);
+
         /*  value.postDelayed(new Runnable(){내용},시간);
           -> 시간(ms)만큼 딜레이후에  지정한 엑티비티 실행
         {} 내용
@@ -38,6 +32,6 @@ public class SplashActivity extends AppCompatActivity {
          -acticity 끝냄
 
          */
->>>>>>> MH
+
     }
 }
