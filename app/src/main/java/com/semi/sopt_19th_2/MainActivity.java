@@ -102,8 +102,8 @@ public class MainActivity extends AppCompatActivity {
                 editPwd.setText("");
                 editName.setText("");
                 editMajor.setText("");
-                groupGender.clearCheck();
-                groupPart.clearCheck();
+                groupGender.check(R.id.man);
+                groupPart.check(R.id.androidPart);
             }
         });
         //  리셋버튼 누르면 다초기화
