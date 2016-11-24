@@ -37,12 +37,14 @@ public class MyPageActivity extends AppCompatActivity {
         String major = getData.getExtras().getString("major");
         String part = getData.getExtras().getString("part");
         String gender = getData.getExtras().getString("gender");
+
         String img = getData.getExtras().getString("img");       // 넘겨온 인텐트 객체안의 번들 객체의  담아둠
 
         if(img.equals("0"))
             myImgView.setImageResource(R.drawable.ic__teach_mypage);
         else if(img.equals("1"))// 잘못된 코드 수정 안의변수값 0->1
             myImgView.setImageResource(R.drawable.ic_hobby_mypage); // ready-> hobby
+
         else
             myImgView.setImageResource(R.drawable.ic_ready_mypage); // hobby -> ready
 

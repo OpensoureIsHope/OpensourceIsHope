@@ -23,11 +23,12 @@
         android:layout_weight="4"
         android:gravity="center">
 
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:src="@drawable/symbol"/>
-    </LinearLayout>
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/symbol"
+        android:id="@+id/imageView2" />
+</LinearLayout>
 <!-- 맨위 라이너 레이아웃 , 이미지 매핑-->
 
     <LinearLayout
@@ -44,8 +45,11 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
             android:singleLine="true"
-            android:hint="ID"/>
+            android:hint="아이디"/>
+
+
 <!-- android:id="@+id/inputIdEdit" :  ID text 필드의 id를 inputIdEdit으로 지정-->
+
 
         <EditText
             android:id="@+id/inputPwdEdit"
@@ -55,7 +59,7 @@
             android:layout_marginTop="10dp"
             android:singleLine="true"
             android:inputType="numberPassword"
-            android:hint="Password"/>
+            android:hint="패스워드"/>
     </LinearLayout>
 <!--paddingLeft : 글자의 위치 변경-->
 

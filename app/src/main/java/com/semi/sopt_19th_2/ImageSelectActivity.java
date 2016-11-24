@@ -21,7 +21,7 @@ public class ImageSelectActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_image_select);
+        setContentView(R.layout.activity_image_select); // activity_image_select.xml을 가져온다.
 
         preImgArea = (LinearLayout)findViewById(R.id.preImgBtn);
         nextImgArea = (LinearLayout)findViewById(R.id.nextImgBtn); // 매핑
@@ -30,9 +30,11 @@ public class ImageSelectActivity extends AppCompatActivity {
 
         preImgArea.setOnClickListener(new View.OnClickListener() {
             @Override
+
             public void onClick(View view) { // 이전이미지 리니어레이아웃 누를 때
                 if(imgCount > 0 ){ //처음이미지면 작동 x
                     imgCount--; // 이전이미지라 카운트 하나줄임
+
                     if(imgCount == 0){
                         myImageView.setImageResource(R.drawable.ic__teach_mypage); // 줄인 카운트가 0이면 처음 이미지로
                     }
@@ -49,8 +51,10 @@ public class ImageSelectActivity extends AppCompatActivity {
 
         nextImgArea.setOnClickListener(new View.OnClickListener() {
             @Override
+
             public void onClick(View view) { // 다음이미지 누를때
                 if(imgCount < 3 ){ // 젤끝 이미지면 실행 x
+
                     imgCount++;
                     if(imgCount == 0){
                         myImageView.setImageResource(R.drawable.ic__teach_mypage);
@@ -81,8 +85,9 @@ public class ImageSelectActivity extends AppCompatActivity {
                         .setPositiveButton("확인", new DialogInterface.OnClickListener(){
                             // 확인 버튼 클릭시 설정
                             public void onClick(DialogInterface dialog, int whichButton){
-                                Intent getData = getIntent(); // mainactivity에서 전달된 intent객체를 참조하기 위해 사용, getExtras()는 넘겨온 객체안의 Extras객체를 참조하기위해 사용.
-                                Intent intent = new Intent(getApplicationContext(),MyPageActivity.class); // intent생성
+
+                                Intent getData = getIntent();
+                                Intent intent = new Intent(getApplicationContext(),MyPageActivity.class); // 확인을 누르면 myPageActivity page로 넘어간다.
 
                                 intent.putExtra("id",getData.getExtras().getString("id"));  // getData(넘어온 intent객체)의 extra중에 "id"의 내용(minhang7)을 "id'"에 실어서 넘긴다.
                                 intent.putExtra("pwd",getData.getExtras().getString("pwd"));
@@ -103,7 +108,7 @@ public class ImageSelectActivity extends AppCompatActivity {
                         });
 
                 AlertDialog dialog = builder.create();    // 알림창 객체 생성
-                dialog.show();    // 알림창 띄우기
+                dialog.show();
 
 
             }

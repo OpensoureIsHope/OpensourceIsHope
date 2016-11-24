@@ -5,12 +5,16 @@
     android:layout_height="match_parent"
     tools:context="com.semi.sopt_19th_2.SplashActivity"
     android:gravity="center_horizontal"
-    android:background="#ffffff">
+    android:background="#ffffff"
+    android:weightSum="1">
 
     <ImageView
         android:layout_marginTop="150dp"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:src="@drawable/symbol"/>
+        android:layout_width="match_parent"
+        android:layout_height="271dp"
+        android:src="@drawable/pikachu"
+        android:id="@+id/imageView" />
+
 <!--이미지 drawable에서 가져옴-->
+
 </LinearLayout>
