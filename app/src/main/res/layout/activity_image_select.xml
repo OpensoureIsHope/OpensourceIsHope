@@ -39,11 +39,11 @@
             android:gravity="center">
 
             <ImageView
-                android:id="@+id/myImage"
+                android:id="@+id/gitImage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic__teach_mypage"/>
-<!--기본이미지 하마로 설정해놈, 이미지뷰를 버튼으로 사용-->
+            <!--기본이미지 하마로 설정해놈, 이미지뷰를 버튼으로 사용-->
         </LinearLayout>
 
         <LinearLayout
