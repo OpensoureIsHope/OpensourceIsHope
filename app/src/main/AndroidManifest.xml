@@ -20,6 +20,7 @@
         </activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".ImageSelectActivity" />
+        <activity android:name=".infoPageActivity" />
         <activity android:name=".MyPageActivity"/>
     </application>
 
