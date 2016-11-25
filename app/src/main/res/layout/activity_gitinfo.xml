@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.semi.sopt_19th_2.ImageSelectActivity"
+    tools:context="com.semi.sopt_19th_2.gitInfoActivity"
     android:orientation="vertical"
     android:weightSum="10">
 
@@ -11,17 +11,14 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="2.87"
-        android:weightSum="10"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
+        android:layout_height="0dp"
+        android:layout_weight="9.35"
         android:gravity="center">
 
         <ImageView
-            android:layout_width="301dp"
-            android:layout_height="218dp"
-            android:src="@drawable/maxresdefault"
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:src="@drawable/gitinit"
             android:id="@+id/imageView2" />
     </LinearLayout>
 
@@ -35,11 +32,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="144dp"
-            android:text="git init
-->  Create Master"
+            android:text="git init을 수행하면 master 줄기가 생성된다."
             android:gravity="left"
-            android:paddingRight="5dp"
-            android:textSize="25dp"/>
+            android:textSize="25dp"
+            android:id="@+id/gitTextView" />
 
     </LinearLayout>
 
@@ -54,7 +50,7 @@
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:text="이전"
-            android:textSize="20dp"/>
+            />
 
         <Button
             android:id="@+id/AfterBtn"
@@ -62,7 +58,7 @@
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:text="다음"
-            android:textSize="20dp"/>
+            />
 
 
     </LinearLayout>

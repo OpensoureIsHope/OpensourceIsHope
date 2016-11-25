@@ -16,6 +16,7 @@ public class LoginActivity extends AppCompatActivity {
     Button loginBtn;
     Button signUpBtn;
     Button goGithubBtn;
+    Button  gitInfoBtn;
     /**
      * 아직 2차세미나!!
      * 서버연동을 모르기때문에
@@ -36,6 +37,8 @@ public class LoginActivity extends AppCompatActivity {
         loginBtn = (Button)findViewById(R.id.loginBtn);
         signUpBtn = (Button)findViewById(R.id.signUpBtn);
         goGithubBtn = (Button)findViewById(R.id.goGitub);
+        gitInfoBtn = (Button)findViewById(R.id.gitInfomation);
+
         /*  findViewById로 id부여한 view들을 가져와서 사용할수 있게 한다.*/
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
@@ -82,5 +85,14 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(myIntent);
         }
         });
+
+        gitInfoBtn.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View view) {
+                Intent intent2 = new Intent(getApplicationContext(),gitInfoActivity.class);
+                startActivity(intent2);
+            }
+        });
+
     }
 }
