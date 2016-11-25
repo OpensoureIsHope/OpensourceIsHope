@@ -1,8 +1,11 @@
 package com.semi.sopt_19th_2;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,6 +18,7 @@ public class MyPageActivity extends AppCompatActivity {
     TextView textViewMajor;
     TextView textViewPart;
     TextView textViewGender;
+    Button goGitInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +33,7 @@ public class MyPageActivity extends AppCompatActivity {
         textViewMajor = (TextView)findViewById(R.id.userMajor);
         textViewPart = (TextView)findViewById(R.id.userPart);
         textViewGender = (TextView)findViewById(R.id.userGender);
+        goGitInfo = (Button)findViewById(R.id.OssInfo);
 
         Intent getData = getIntent(); //imageselectactivity에서 넘겨온 인텐트 객체를 참조하기위해
         String id = getData.getExtras().getString("id"); //받아온 내용 대입.(minhang7)
@@ -44,7 +49,6 @@ public class MyPageActivity extends AppCompatActivity {
             myImgView.setImageResource(R.drawable.ic__teach_mypage);
         else if(img.equals("1"))// 잘못된 코드 수정 안의변수값 0->1
             myImgView.setImageResource(R.drawable.ic_hobby_mypage); // ready-> hobby
-
         else
             myImgView.setImageResource(R.drawable.ic_ready_mypage); // hobby -> ready
 
@@ -55,5 +59,13 @@ public class MyPageActivity extends AppCompatActivity {
         textViewPart.setText(part);
         textViewGender.setText(gender);
         // 값 변경
+
+        goGitInfo.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View view) {
+                Intent OSSinfo = new Intent(Intent.ACTION_VIEW, Uri.parse("https://en.wikipedia.org/wiki/Open-source_software"));
+                startActivity(OSSinfo);
+            }
+        });
     }
 }
