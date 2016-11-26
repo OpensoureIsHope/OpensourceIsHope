@@ -12,6 +12,7 @@ public class ItemData {
     String gender;
     String pwd;
 
+
     public int getImg_title() {
         return img_title;
     }

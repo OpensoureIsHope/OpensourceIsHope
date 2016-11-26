@@ -19,7 +19,7 @@ public class DbOpenHelper {
     private DatabaseHelper mDBHelper;
     private Context mCtx;
 
-    private ArrayList<ItemData> itemDatas = null;
+    private static ArrayList<ItemData> itemDatas = null;
     private class DatabaseHelper extends SQLiteOpenHelper {
 
         // 생성자
@@ -56,16 +56,19 @@ public class DbOpenHelper {
      * DB에 데이터 추가
      * @param id
      * @param pwd
+     * @param name
      * @param major
      * @param gender
      * @param img
      */
     // id name number check time image
-    public void DbInsertJoin(String id, String pwd, String major ,String gender, String img ){
+    public void DbInsertJoin(String id, String pwd, String name, String major ,String gender, String img ){
+        mDB = mDBHelper.getWritableDatabase();
 
         ContentValues values = new ContentValues();
         values.put("id",id);
         values.put("pwd",pwd);
+        values.put("name",name);
         values.put("major",major);
         values.put("gender",gender);
         values.put("img", img);
@@ -80,10 +83,11 @@ public class DbOpenHelper {
      * @param id
      * @param pwd
      * @param major
+     * @param name
      * @param gender
      * @param img
 
-    public void DbUpdate(String id, String pwd, String major ,String gender, String img){
+    public void DbUpdate(String id, String pwd, String name, String major ,String gender, String img){
 
         ContentValues values = new ContentValues();
         values.put("name",name);
@@ -115,7 +119,7 @@ public class DbOpenHelper {
     public ArrayList<ItemData> DbSelectJoin(){
         SQLiteDatabase getDb;
         getDb = mDBHelper.getReadableDatabase();
-        Cursor c = getDb.query("join", null, null, null, null, null, null);
+        Cursor c = getDb.query("join", null, null, null, null, null, null, null);
 
         itemDatas = new ArrayList<ItemData>();
 
@@ -125,6 +129,7 @@ public class DbOpenHelper {
             int _id = c.getInt(c.getColumnIndex("_id"));
             String id = c.getString(c.getColumnIndex("id"));
             String pwd = c.getString(c.getColumnIndex("pwd"));
+            String name = c.getString(c.getColumnIndex("name"));
             String major = c.getString(c.getColumnIndex("major"));
             String image = c.getString(c.getColumnIndex("image"));
             String gender = c.getString(c.getColumnIndex("gender"));
@@ -133,10 +138,10 @@ public class DbOpenHelper {
 
             ItemData listViewItem = new ItemData();
             listViewItem.ID = _id;
-
-
             listViewItem.id = id;
             listViewItem.pwd = pwd;
+            listViewItem.name =name;
+            listViewItem.major=major;
             listViewItem.img_title = Integer.valueOf(image);
             listViewItem.gender = gender;
 

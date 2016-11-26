@@ -14,12 +14,11 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter> <!-- 제일 처음 실행하는 파일에 추가해줘야함-->
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".ImageSelectActivity" />
+        <activity android:name=".LoginActivity"/>
+        <activity android:name=".ImageSelectActivity"/>
         <activity android:name=".MyPageActivity"/>
     </application>
 

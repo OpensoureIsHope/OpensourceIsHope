@@ -1,6 +1,10 @@
 package com.semi.sopt_19th_2;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,7 +13,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.semi.sopt_19th_2.Database.DbOpenHelper;
+import com.semi.sopt_19th_2.Database.ItemData;
+
+import java.util.ArrayList;
+
 public class LoginActivity extends AppCompatActivity {
+    private DbOpenHelper mDbOpenHelper;
+    private ArrayList<ItemData> itemDatas = null;
 
     EditText inputIdEdit;
     EditText inputPwdEdit;
@@ -21,8 +32,7 @@ public class LoginActivity extends AppCompatActivity {
      * 서버연동을 모르기때문에
      * 임시로 id, pwd를 넣어준다
      */
-
-    String id = "minhang7";
+    String id = "1";
     String pwd = "123123";
 /*minhang7, 123123으로 수정*/
 
@@ -31,12 +41,17 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);  // activity_login.xml을 가져온다.
 
+
+
+//        itemDatas = mDbOpenHelper.DbSelectJoin();
+
         inputIdEdit = (EditText)findViewById(R.id.inputIdEdit);
         inputPwdEdit = (EditText)findViewById(R.id.inputPwdEdit);
         loginBtn = (Button)findViewById(R.id.loginBtn);
         signUpBtn = (Button)findViewById(R.id.signUpBtn);
         goGithubBtn = (Button)findViewById(R.id.goGitub);
         /*  findViewById로 id부여한 view들을 가져와서 사용할수 있게 한다.*/
+        mDbOpenHelper = new DbOpenHelper(this);
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -6,7 +6,10 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.semi.sopt_19th_2.Database.DbOpenHelper;
+
 public class MyPageActivity extends AppCompatActivity {
+    private DbOpenHelper mDbOpenHelper;
 
     ImageView myImgView;
     TextView textViewId;
@@ -33,9 +36,8 @@ public class MyPageActivity extends AppCompatActivity {
         Intent getData = getIntent(); //imageselectactivity에서 넘겨온 인텐트 객체를 참조하기위해
         String id = getData.getExtras().getString("id"); //받아온 내용 대입.(minhang7)
         String pwd = getData.getExtras().getString("pwd");// (123123)
-        String name = getData.getExtras().getString("name");
+        //String name = getData.getExtras().getString("name");
         String major = getData.getExtras().getString("major");
-        String part = getData.getExtras().getString("part");
         String gender = getData.getExtras().getString("gender");
 
         String img = getData.getExtras().getString("img");       // 넘겨온 인텐트 객체안의 번들 객체의  담아둠
@@ -50,9 +52,8 @@ public class MyPageActivity extends AppCompatActivity {
 
         textViewId.setText(id);
         textViewPwd.setText(pwd);
-        textViewName.setText(name);
+      //  textViewName.setText(name);
         textViewMajor.setText(major);
-        textViewPart.setText(part);
         textViewGender.setText(gender);
         // 값 변경
     }
