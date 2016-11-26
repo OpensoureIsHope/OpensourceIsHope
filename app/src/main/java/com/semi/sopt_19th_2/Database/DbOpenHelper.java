@@ -6,31 +6,44 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+import android.database.sqlite.SQLiteDatabase.CursorFactory;
+import com.semi.sopt_19th_2.Database.ItemData;
+import com.semi.sopt_19th_2.MainActivity;
 
 import java.util.ArrayList;
 
 /**
  * Created by hyejin on 2016-11-27.
  */
+
+/**
+ * DB에 대한 함수가 정의된 곳
+ *
+ */
 public class DbOpenHelper {
-    private static final String DATABASE_NAME = "ossteam.db";
-    private static final int DATABASE_VERSION = 1;
+    public static final String DATABASE_NAME = "ossteam.db";
+    public static final int DATABASE_VERSION = 1;
     public static SQLiteDatabase mDB;
     private DatabaseHelper mDBHelper;
     private Context mCtx;
 
-    private static ArrayList<ItemData> itemDatas = null;
-    private class DatabaseHelper extends SQLiteOpenHelper {
+    private ArrayList<ItemData> itemDatas = null;
+
+
+
+    public class DatabaseHelper extends SQLiteOpenHelper {
 
         // 생성자
-        public DatabaseHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
+        public DatabaseHelper(Context context, String name,  CursorFactory factory, int version) {
             super(context, name, factory, version);
         }
 
         // 최초 DB를 만들때 한번만 호출된다.
         @Override
         public void onCreate(SQLiteDatabase db) {
-            db.execSQL(Databases.CreateDB._CREATE);
+            db.execSQL(Databases.CreateDB._s);
+
 
         }
 
@@ -52,29 +65,21 @@ public class DbOpenHelper {
         return this;
     }
 
-    /**
-     * DB에 데이터 추가
-     * @param id
-     * @param pwd
-     * @param name
-     * @param major
-     * @param gender
-     * @param img
-     */
+
     // id name number check time image
-    public void DbInsertJoin(String id, String pwd, String name, String major ,String gender, String img ){
-        mDB = mDBHelper.getWritableDatabase();
+    public void DbInsertJoin(String id, String pwd, String name, String major, String gender, String image){
+
 
         ContentValues values = new ContentValues();
         values.put("id",id);
-        values.put("pwd",pwd);
+        values.put("pwd", pwd);
         values.put("name",name);
         values.put("major",major);
         values.put("gender",gender);
-        values.put("img", img);
+        values.put("image", image);
 
 
-        mDB.insert("join",null,values);
+        mDB.insert("memberinfo",null,values);
 
     }
 
@@ -107,7 +112,7 @@ public class DbOpenHelper {
      */
     public void DbDeleteJoin(String id) {
 
-        mDB.delete("join", "_id=?", new String[]{id});
+        mDB.delete("memberinfo", "_id=?", new String[]{id});
 
     }
 
@@ -119,7 +124,7 @@ public class DbOpenHelper {
     public ArrayList<ItemData> DbSelectJoin(){
         SQLiteDatabase getDb;
         getDb = mDBHelper.getReadableDatabase();
-        Cursor c = getDb.query("join", null, null, null, null, null, null, null);
+        Cursor c = getDb.rawQuery("select * from memberinfo" , null);
 
         itemDatas = new ArrayList<ItemData>();
 
@@ -131,7 +136,7 @@ public class DbOpenHelper {
             String pwd = c.getString(c.getColumnIndex("pwd"));
             String name = c.getString(c.getColumnIndex("name"));
             String major = c.getString(c.getColumnIndex("major"));
-            String image = c.getString(c.getColumnIndex("image"));
+            String img = c.getString(c.getColumnIndex("image"));
             String gender = c.getString(c.getColumnIndex("gender"));
 
 //            Log.i("dbtest", String.valueOf(_id) + " " + name);
@@ -142,18 +147,17 @@ public class DbOpenHelper {
             listViewItem.pwd = pwd;
             listViewItem.name =name;
             listViewItem.major=major;
-            listViewItem.img_title = Integer.valueOf(image);
+         listViewItem.img=img;
             listViewItem.gender = gender;
 
 
-            itemDatas.add(0,listViewItem);
+            itemDatas.add(listViewItem);
 
         }
 
 
         return itemDatas;
     }
-
     public void close(){
         mDB.close();
     }

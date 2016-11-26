@@ -8,22 +8,22 @@ import android.provider.BaseColumns;
 public class Databases {
     public static final class CreateDB implements BaseColumns {
         public static final String ID = "id";
-        public static final String PASSWORD = "pwd";
-        public static final String NAME ="name";
+        public static final String NAME = "name";
+        public static final String IMAGE = "image";
+        public static final String PWD = "pwd";
         public static final String MAJOR = "major";
         public static final String GENDER = "gender";
-        public static final String IMAGE = "image";
-        public static final String _TABLENAME = "join";
+        public static final String _TABLENAME = "memberinfo";
         // id name number time image
-        public static final String _CREATE =
+        public static final String _s =
                 "create table "+_TABLENAME+"("
                         +_ID+" integer primary key autoincrement, "
-                        +ID+" varchar(25) not null, "
-                        +PASSWORD+" varchar(25) not null, "
-                        +NAME+" varchar(25) not null, "
-                        +MAJOR+" varchar(25) not null, "
-                        +GENDER+" varchar(25) not null, "
-                        +IMAGE+" varchar(25));";
-
+                        +ID+" text , "
+                        +PWD+" text , "
+                        +NAME+" text , "
+                        +MAJOR+" text , "
+                        +GENDER+" text , "
+                        +IMAGE+" text );";
     }
-}
+    }
+

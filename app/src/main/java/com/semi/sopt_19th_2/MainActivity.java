@@ -2,6 +2,7 @@ package com.semi.sopt_19th_2;
 
 import android.content.Intent;
 import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -12,9 +13,12 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.semi.sopt_19th_2.Database.DbOpenHelper;
+import com.semi.sopt_19th_2.Database.ItemData;
 
 public class MainActivity extends AppCompatActivity {
-    private DbOpenHelper mDbOpenHelper;
+    public DbOpenHelper mDbOpenHelper;
+    int dbVersion =1;
+    private  SQLiteDatabase db;
     private EditText editId;
     private EditText editPwd;
     private EditText editName;
@@ -28,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+//        mDbOpenHelper.open();
         /**
          * 초기화
          */
@@ -79,7 +84,16 @@ public class MainActivity extends AppCompatActivity {
         String id = String.valueOf(editId.getText());
         String pwd = String.valueOf(editPwd.getText());
         String name = String.valueOf(editName.getText());
-        String major =String.valueOf(editMajor.getText()) ;
+        String major =String.valueOf(editMajor.getText());
+                String image="1";
+                mDbOpenHelper = new DbOpenHelper(MainActivity.this);
+                try {
+                    mDbOpenHelper.open();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                mDbOpenHelper.DbInsertJoin(id, pwd, name, major, gender, image);
+
         Intent intent  = new Intent(getApplicationContext(),ImageSelectActivity.class); // 이미지 고르기 부분 activity 으로 전환하는 intent
         intent.putExtra("id",String.valueOf(editId.getText())); // minhang7을 id에 실어서 넘긴거.
         intent.putExtra("pwd",String.valueOf(editPwd.getText()));
@@ -87,13 +101,7 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("major",String.valueOf(editMajor.getText()));
         intent.putExtra("gender",gender);
         // 각 부분의 텍스트 부분을 가져와서 imageselect 액티비티에 추가로 넘김 "id" ... 에 실어서 보냄
-         mDbOpenHelper = new DbOpenHelper(MainActivity.this); mDbOpenHelper = new DbOpenHelper(MainActivity.this);
-                try {
-                    mDbOpenHelper.open();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-        mDbOpenHelper.DbInsertJoin(id, pwd, name, major, gender,"1");
+
         startActivity(intent);// 전환
         finish();
     }
@@ -119,4 +127,5 @@ public class MainActivity extends AppCompatActivity {
         //  리셋버튼 누르면 다초기화
 
     }
+
 }
