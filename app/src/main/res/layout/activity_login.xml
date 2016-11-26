@@ -74,6 +74,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Login"/>
+
         <Button
             android:id="@+id/goGitub"
             android:layout_width="wrap_content"
@@ -81,6 +82,14 @@
             android:layout_marginTop="50dp"
             android:layout_marginLeft="10dp"
             android:text="github"/>
+
+        <Button
+            android:text="infoPage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/infoPageBtn"
+            android:layout_weight="0.02" />
+
         <Button
             android:id="@+id/signUpBtn"
             android:layout_marginLeft="10dp"

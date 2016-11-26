@@ -18,19 +18,13 @@
         android:paddingRight="10dp"
         android:gravity="center">
 
-        <LinearLayout
+        <ImageView
+            android:id="@+id/myImage"
             android:layout_width="0dp"
-            android:layout_height="250dp"
-            android:layout_weight="7"
-            android:gravity="center">
+            android:layout_height="185dp"
+            android:src="@drawable/a"
+            android:layout_weight="7" />
 
-            <ImageView
-                android:id="@+id/myImage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/a"/>
-
-        </LinearLayout>
     </LinearLayout>
 
     // MidLayout
@@ -43,12 +37,13 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:gravity="center">
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="10dp"
-            android:layout_weight="7"
-            android:gravity="center">
-        </LinearLayout>
+
+        <TextView
+            android:text="리처드 매슈 스톨먼(Richard Matthew Stallman, 1953년 3월 16일 ~ )은 자유 소프트웨어 운동의 중심 인물이며, GNU 프로젝트와 자유 소프트웨어 재단의 설립자이다. 그는 이 운동을 지원하기 위해 카피레프트의 개념을 만들었으며, 현재 널리 쓰이고 있는 일반 공중 사용 허가서(GPL) 소프트웨어 라이선스의 개념을 도입했다."
+            android:layout_width="wrap_content"
+            android:layout_height="202dp"
+            android:id="@+id/textView"
+            android:layout_weight="9.02" />
     </LinearLayout>
 
     // BottomLayout

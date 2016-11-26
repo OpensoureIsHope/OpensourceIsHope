@@ -1,0 +1,209 @@
+package com.semi.sopt_19th_2;
+
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+
+public class ImageSelectActivity2 extends AppCompatActivity {
+
+    LinearLayout preImgArea;
+    LinearLayout nextImgArea;
+    ImageView myImageView;
+    Button registerBtn;
+
+    int imgCount = 0; // 이미지 3개 0,1,2
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_image_select);
+
+        preImgArea = (LinearLayout)findViewById(R.id.preImgBtn);
+        nextImgArea = (LinearLayout)findViewById(R.id.nextImgBtn);
+        myImageView = (ImageView)findViewById(R.id.myImage);
+        registerBtn = (Button)findViewById(R.id.registerBtn);
+
+        preImgArea.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(imgCount > 0 ){
+                    imgCount--;
+                    if(imgCount == 0){
+                        myImageView.setImageResource(R.drawable.A);
+                    }
+                    else if(imgCount == 1){
+                        myImageView.setImageResource(R.drawable.B);
+                    }
+                    else if(imgCount == 2){
+                        myImageView.setImageResource(R.drawable.C);
+                    }
+
+                }
+            }
+        });
+
+        nextImgArea.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(imgCount < 3 ){
+                    imgCount++;
+                    if(imgCount == 0){
+                        myImageView.setImageResource(R.drawable.A);
+                    }
+                    else if(imgCount == 1){
+                        myImageView.setImageResource(R.drawable.B);
+                    }
+                    else if(imgCount == 2){
+                        myImageView.setImageResource(R.drawable.C);
+                    }
+
+                }
+            }
+        });
+
+        /**
+         * 전 액티비티에서 받아온 정보를 마이페이지에 이미지의 정보와 함께 그대로 넘겨준다.
+         */
+
+        registerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(ImageSelectActivity2.this);
+                // 여기서 부터는 알림창의 속성 설정
+                builder.setMessage("회원 가입을 하시겠습니까?")        // 메세지 설정
+                        .setCancelable(true)        // 뒤로 버튼 클릭시 취소 가능 설정
+                        .setPositiveButton("확인", new DialogInterface.OnClickListener(){
+                            // 확인 버튼 클릭시 설정
+                            public void onClick(DialogInterface dialog, int whichButton){
+                                Intent getData = getIntent();
+                                Intent intent = new Intent(getApplicationContext(),MyPageActivity.class);
+
+                                intent.putExtra("id",getData.getExtras().getString("id"));
+                                intent.putExtra("pwd",getData.getExtras().getString("pwd"));
+                                intent.putExtra("name",getData.getExtras().getString("name"));
+                                intent.putExtra("major",getData.getExtras().getString("major"));
+                                intent.putExtra("part",getData.getExtras().getString("part"));
+                                intent.putExtra("gender",getData.getExtras().getString("gender"));
+                                intent.putExtra("img",String.valueOf(imgCount));
+
+                                startActivity(intent);
+                            }
+                        })
+                        .setNegativeButton("취소", new DialogInterface.OnClickListener(){
+                            // 취소 버튼 클릭시 설정
+                            public void onClick(DialogInterface dialog, int whichButton){
+                                dialog.cancel();
+                            }
+                        });
+
+                AlertDialog dialog = builder.create();    // 알림창 객체 생성
+                dialog.show();    // 알림창 띄우기
+
+
+            }
+        });
+    }
+}
+--
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.semi.sopt_19th_2.ImageSelectActivity"
+    android:orientation="vertical"
+    android:weightSum="10">
+
+    // layout_weight= 한 화면안에서의 비율을 의미하는듯하다.
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:weightSum="10"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="250dp"
+            android:layout_weight="7"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/myImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic__teach_mypage"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    // MidLayout
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:weightSum="10"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:gravity="center">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="10dp"
+            android:layout_weight="7"
+            android:gravity="center">
+        </LinearLayout>
+    </LinearLayout>
+
+    // BottomLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:gravity="center_horizontal">
+        <LinearLayout
+            android:id="@+id/preImgBtn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1.07"
+            android:gravity="center"
+            android:background="#3f51b4">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:text="Back"/>
+        </LinearLayout>
+        <Button
+            android:id="@+id/registerBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"/>
+        <LinearLayout
+            android:id="@+id/nextImgBtn"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1.5"
+            android:gravity="center"
+            android:background="#3f51b4">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:text="Next"/>
+        </LinearLayout>
+    </LinearLayout>// BottomLayout
+</LinearLayout>

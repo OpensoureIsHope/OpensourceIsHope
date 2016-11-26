@@ -70,6 +70,7 @@ public class infoPageActivity extends AppCompatActivity {
          * 전 액티비티에서 받아온 정보를 마이페이지에 이미지의 정보와 함께 그대로 넘겨준다.
          */
 
+
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

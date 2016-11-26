@@ -16,6 +16,7 @@ public class LoginActivity extends AppCompatActivity {
     Button loginBtn;
     Button signUpBtn;
     Button goGithubBtn;
+    Button infoPageBtn;
     /**
      * 아직 2차세미나!!
      * 서버연동을 모르기때문에
@@ -35,7 +36,9 @@ public class LoginActivity extends AppCompatActivity {
         inputPwdEdit = (EditText)findViewById(R.id.inputPwdEdit);
         loginBtn = (Button)findViewById(R.id.loginBtn);
         signUpBtn = (Button)findViewById(R.id.signUpBtn);
+
         goGithubBtn = (Button)findViewById(R.id.goGitub);
+        infoPageBtn = (Button)findViewById(R.id.infoPageBtn);
         /*  findViewById로 id부여한 view들을 가져와서 사용할수 있게 한다.*/
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
@@ -81,6 +84,14 @@ public class LoginActivity extends AppCompatActivity {
                 Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/OpensoureIsHope/OpensourceIsHope"));
                 startActivity(myIntent);
         }
+        });
+
+        infoPageBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),infoPageActivity.class);
+                startActivity(intent);
+            }
         });
     }
 }
