@@ -22,6 +22,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="7.5"
@@ -138,53 +139,7 @@
         </LinearLayout>
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:weightSum="10"
-            >
-            <!--match parent : 화면에 맞춤-->
-            <!--가중치 합 : 10-->
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:text="파트 :"
-                android:gravity="right"
-                android:paddingRight="5dp"
-                android:textSize="20dp"/>
-                <!--가중치 2 배정-->
-            <RadioGroup
-                android:id="@+id/radioPart"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="8"
-                android:orientation="horizontal"
-                android:gravity="center">
-                <!-- 그룹 생성 -->
-                <RadioButton
-                    android:id="@+id/androidPart"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="true"
-                    android:text="안드로이드"/>
-                <!--처음에 선택 되어있게 함-->
-                <RadioButton
-                    android:id="@+id/serverPart"
-                    android:layout_marginLeft="15dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="서버"/>
 
-                <RadioButton
-                    android:id="@+id/iosPart"
-                    android:layout_marginLeft="15dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="IOS"/>
-
-            </RadioGroup>
 <!--옵션버튼(Radio button) 은 체크 박스와 달리 여러 개를
 
 동시에 체크할수 없습니다. 하나가 체크되면
@@ -195,7 +150,7 @@
 
 제공하며 RadioButton 을 묶어서 관리 합니다.
 -->
-        </LinearLayout>
+
 
 
         <LinearLayout
@@ -241,7 +196,7 @@
 
 
         <LinearLayout
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="50dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center">
