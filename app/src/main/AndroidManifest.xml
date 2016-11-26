@@ -21,6 +21,7 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".ImageSelectActivity" />
         <activity android:name=".MyPageActivity"/>
+        <activity android:name=".OssListActivity"/>
 
     </application>
 

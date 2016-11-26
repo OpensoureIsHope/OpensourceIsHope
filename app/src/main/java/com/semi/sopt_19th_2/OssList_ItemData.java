@@ -15,7 +15,14 @@ public class OssList_ItemData {
         mIcon = icon;
         mData = obj;
     }
+    public OssList_ItemData(Drawable icon, String obj01, String obj02)
+    {
+        mIcon = icon;
 
+        mData = new String[3];
+        mData[0] = obj01;
+        mData[1] = obj02;
+    }
     public OssList_ItemData(Drawable icon, String obj01, String obj02, String obj03)
     {
         mIcon = icon;
@@ -51,4 +58,7 @@ public class OssList_ItemData {
     }
 
 
+    public String getdata(int i) {
+        return mData[i];
+    }
 }
