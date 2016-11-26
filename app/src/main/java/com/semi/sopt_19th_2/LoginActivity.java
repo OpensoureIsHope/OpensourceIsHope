@@ -32,8 +32,8 @@ public class LoginActivity extends AppCompatActivity {
      * 서버연동을 모르기때문에
      * 임시로 id, pwd를 넣어준다
      */
-    String id = "1";
-    String pwd = "123123";
+    public String id ;
+    public String pwd ;
 /*minhang7, 123123으로 수정*/
 
     @Override
@@ -72,7 +72,8 @@ public class LoginActivity extends AppCompatActivity {
                 String inputId = String.valueOf(inputIdEdit.getText());
                 String inputPwd = String.valueOf(inputPwdEdit.getText());
 
-                if(inputId.equals(id) && inputPwd.equals(pwd)){  // id와 pwd가 같은지 확인하는 함수
+                if(mDbOpenHelper.DbSelectUser(inputId)==1){  // id와 pwd가 같은지 확인하는 함수
+
                     Toast.makeText(getApplicationContext(),"로그인 성공!!!",Toast.LENGTH_SHORT).show();
 
                 }

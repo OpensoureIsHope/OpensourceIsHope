@@ -2,6 +2,7 @@ package com.semi.sopt_19th_2.Database;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.SearchRecentSuggestionsProvider;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
@@ -12,6 +13,8 @@ import com.semi.sopt_19th_2.Database.ItemData;
 import com.semi.sopt_19th_2.MainActivity;
 
 import java.util.ArrayList;
+
+import static java.sql.DriverManager.println;
 
 /**
  * Created by hyejin on 2016-11-27.
@@ -115,49 +118,58 @@ public class DbOpenHelper {
         mDB.delete("memberinfo", "_id=?", new String[]{id});
 
     }
+//로그인을 위해 체크하는 함수
+    public int DbSelectUser(String id){
+        mDB = mDBHelper.getReadableDatabase();
+        String SQL = "select * "+" from "+"join"+" where id=?";
+        String[] args ={id};
 
+        Cursor c1 =mDB.rawQuery(SQL, args);
+        int recordCount = c1.getCount();
+        if(recordCount==0)
+            return 0;
+        else
+            return 1;
 
+    }
     /**
      * devices테이블에 저장되어있는 값들을 반환하는 함수 - 리스트뷰 뿌릴 때 호출
      * @return
      */
-    public ArrayList<ItemData> DbSelectJoin(){
-        SQLiteDatabase getDb;
-        getDb = mDBHelper.getReadableDatabase();
-        Cursor c = getDb.rawQuery("select * from memberinfo" , null);
+    public void DbSelectJoin() {
+        mDB = mDBHelper.getReadableDatabase();
+        Cursor c = mDB.rawQuery("select * from memberinfo;", null);
 
-        itemDatas = new ArrayList<ItemData>();
 
 //        Log.i("dbtest" , "갯수 : " + String.valueOf(c.getCount()));
 
-        while(c.moveToNext()){
-            int _id = c.getInt(c.getColumnIndex("_id"));
-            String id = c.getString(c.getColumnIndex("id"));
-            String pwd = c.getString(c.getColumnIndex("pwd"));
-            String name = c.getString(c.getColumnIndex("name"));
-            String major = c.getString(c.getColumnIndex("major"));
-            String img = c.getString(c.getColumnIndex("image"));
-            String gender = c.getString(c.getColumnIndex("gender"));
+        int recordCount = c.getCount();
+        println("cursor count : " + recordCount + "\n");
+        itemDatas = new ArrayList<ItemData>();
+        ItemData listViewItem = new ItemData();
+        for (int i = 0; i < recordCount; i++) {
+            c.moveToNext();
 
-//            Log.i("dbtest", String.valueOf(_id) + " " + name);
+            String _id = c.getString(0);
+            String id = c.getString(1);
+            String pwd = c.getString(2);
+            String name = c.getString(3);
+            String major = c.getString(4);
+            String gender = c.getString(5);
+            println(name + id + pwd + major + gender + _id);
 
-            ItemData listViewItem = new ItemData();
-            listViewItem.ID = _id;
-            listViewItem.id = id;
+            listViewItem.id=id;
+            listViewItem.name = name;
             listViewItem.pwd = pwd;
-            listViewItem.name =name;
-            listViewItem.major=major;
-         listViewItem.img=img;
+            listViewItem.major = major;
             listViewItem.gender = gender;
 
-
+            listViewItem.name = name;
             itemDatas.add(listViewItem);
-
         }
+        c.close();
 
-
-        return itemDatas;
-    }
+}
     public void close(){
         mDB.close();
     }

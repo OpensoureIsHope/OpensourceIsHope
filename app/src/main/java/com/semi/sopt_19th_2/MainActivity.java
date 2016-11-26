@@ -5,6 +5,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -43,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
         groupGender = (RadioGroup)findViewById(R.id.radioGender); // 라디오버튼 파트부분 바운딩
         submitBtn = (Button)findViewById(R.id.submitBtn);
         resetBtn = (Button)findViewById(R.id.resetBtn);
-
         /**
          * submit 버튼에 대한 클릭이벤트 부여
          * 클릭시 입력한 정보를 Toast로 출력해준다
@@ -85,14 +85,15 @@ public class MainActivity extends AppCompatActivity {
         String pwd = String.valueOf(editPwd.getText());
         String name = String.valueOf(editName.getText());
         String major =String.valueOf(editMajor.getText());
-                String image="1";
+
                 mDbOpenHelper = new DbOpenHelper(MainActivity.this);
                 try {
                     mDbOpenHelper.open();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
-                mDbOpenHelper.DbInsertJoin(id, pwd, name, major, gender, image);
+                mDbOpenHelper.DbInsertJoin(id,pwd,name,major,gender,"1");
+
 
         Intent intent  = new Intent(getApplicationContext(),ImageSelectActivity.class); // 이미지 고르기 부분 activity 으로 전환하는 intent
         intent.putExtra("id",String.valueOf(editId.getText())); // minhang7을 id에 실어서 넘긴거.

@@ -10,6 +10,35 @@ public class ItemData {
     public String name;
     public String major;
     public String gender;
+
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setMajor(String major) {
+        this.major = major;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
     public String pwd;
     public String img;
 
