@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.semi.sopt_19th_2.ImageSelectActivity"
+    tools:context="com.semi.sopt_19th_2.infoPageActivity"
     android:orientation="vertical"
     android:weightSum="10">
 
@@ -21,9 +21,9 @@
         <ImageView
             android:id="@+id/myImage"
             android:layout_width="0dp"
-            android:layout_height="185dp"
-            android:src="@drawable/a"
-            android:layout_weight="7" />
+            android:layout_height="227dp"
+            android:src="@drawable/info_a"
+            android:layout_weight="5.39" />
 
     </LinearLayout>
 
@@ -41,9 +41,8 @@
         <TextView
             android:text="리처드 매슈 스톨먼(Richard Matthew Stallman, 1953년 3월 16일 ~ )은 자유 소프트웨어 운동의 중심 인물이며, GNU 프로젝트와 자유 소프트웨어 재단의 설립자이다. 그는 이 운동을 지원하기 위해 카피레프트의 개념을 만들었으며, 현재 널리 쓰이고 있는 일반 공중 사용 허가서(GPL) 소프트웨어 라이선스의 개념을 도입했다."
             android:layout_width="wrap_content"
-            android:layout_height="202dp"
-            android:id="@+id/textView"
-            android:layout_weight="9.02" />
+            android:layout_height="270dp"
+            android:id="@+id/infoTextView" />
     </LinearLayout>
 
     // BottomLayout
@@ -53,7 +52,7 @@
         android:layout_weight="2"
         android:gravity="center_horizontal">
         <LinearLayout
-            android:id="@+id/preImgBtn"
+            android:id="@+id/preInfoBtn"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_weight="1.07"
@@ -63,29 +62,32 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#000000"
-                android:textSize="20sp"
-                android:text="Back"/>
+                android:text="Back"
+                android:textColor="@android:color/background_light"
+                android:textStyle="normal|bold"
+                android:textSize="20sp" />
         </LinearLayout>
         <Button
-            android:id="@+id/registerBtn"
+            android:id="@+id/moreInfoBtn"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Button"/>
+            android:layout_height="38dp"
+            android:text="More"/>
         <LinearLayout
-            android:id="@+id/nextImgBtn"
-            android:layout_width="0dp"
+            android:id="@+id/nextInfoBtn"
+            android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_weight="1.5"
+            android:layout_weight="1.13"
             android:gravity="center"
             android:background="#3f51b4">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#000000"
+                android:textColor="@android:color/background_light"
                 android:textSize="20sp"
-                android:text="Next"/>
+                android:text="Next"
+                android:textStyle="normal|bold"
+                android:fontFamily="sans-serif" />
         </LinearLayout>
     </LinearLayout>// BottomLayout
 </LinearLayout>
