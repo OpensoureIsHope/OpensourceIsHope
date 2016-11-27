@@ -17,7 +17,7 @@ public class gitInfoActivity extends AppCompatActivity {
     Button preImg;
     Button nextImg; // 버튼같이 사용할 리니어 레이아웃을 매핑할 변수
     ImageView opensourceImg;
-    private TextView gitText;
+    TextView gitText;
     int count = 0;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +54,7 @@ public class gitInfoActivity extends AppCompatActivity {
                     else if(count == 3)
                     {
                         opensourceImg.setImageResource(R.drawable.git_pp);
-                        gitText.setText("git push를 수행하면 자기가 만든 branch와 데이터가 Remote Repository에 push 된다. \n git pull을 수행하면 Remote Repository에 있는 파일이 pull 된다.");
+                        gitText.setText("git push를 수행하면 자기가 만든 branch와 데이터가 Remote Repository에 push 된다.");
                     }
 
                 }
@@ -65,7 +65,7 @@ public class gitInfoActivity extends AppCompatActivity {
             @Override
 
             public void onClick(View view) { // 다음이미지 누를때
-                if(count < 3 ){ // 젤끝 이미지면 실행 x
+                if(count < 4 ){ // 젤끝 이미지면 실행 x
 
                     count++;
                     if(count == 0){
@@ -87,7 +87,7 @@ public class gitInfoActivity extends AppCompatActivity {
                     else if(count == 3)
                     {
                         opensourceImg.setImageResource(R.drawable.git_pp);
-                        gitText.setText("git push를 수행하면 자기가 만든 branch와 데이터가 Remote Repository에 push 된다. \n git pull을 수행하면 Remote Repository에 있는 파일이 pull 된다.");
+                        gitText.setText("git push를 수행하면 자기가 만든 branch와 데이터가 Remote Repository에 push 된다.");
                     }
 
                 }
