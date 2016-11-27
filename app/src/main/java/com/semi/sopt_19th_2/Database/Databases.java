@@ -7,6 +7,7 @@ import android.provider.BaseColumns;
  */
 public class Databases {
     public static final class CreateDB implements BaseColumns {
+        //public static final String _ID = "ID";
         public static final String ID = "id";
         public static final String NAME = "name";
         public static final String IMAGE = "image";

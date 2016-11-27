@@ -1,5 +1,6 @@
 package com.semi.sopt_19th_2;
 
+import android.content.ClipData;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.SQLException;
@@ -40,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);  // activity_login.xml을 가져온다.
+        mDbOpenHelper = new DbOpenHelper(LoginActivity.this);
 
 
 
@@ -51,7 +53,6 @@ public class LoginActivity extends AppCompatActivity {
         signUpBtn = (Button)findViewById(R.id.signUpBtn);
         goGithubBtn = (Button)findViewById(R.id.goGitub);
         /*  findViewById로 id부여한 view들을 가져와서 사용할수 있게 한다.*/
-        mDbOpenHelper = new DbOpenHelper(this);
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,12 +69,11 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
 
-                //입력한 id,pwd와 임시로 넣어준 id,pwd가 같을 경우
                 String inputId = String.valueOf(inputIdEdit.getText());
                 String inputPwd = String.valueOf(inputPwdEdit.getText());
+                pwd = mDbOpenHelper.DbSelectUser(inputPwd);
 
-                if(mDbOpenHelper.DbSelectUser(inputId)==1){  // id와 pwd가 같은지 확인하는 함수
-
+                if(pwd.equals(inputPwd)){  // id와 pwd가 같은지 확인하는 함수
                     Toast.makeText(getApplicationContext(),"로그인 성공!!!",Toast.LENGTH_SHORT).show();
 
                 }

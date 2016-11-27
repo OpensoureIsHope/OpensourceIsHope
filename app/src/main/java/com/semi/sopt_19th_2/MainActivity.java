@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mDbOpenHelper = new DbOpenHelper(MainActivity.this);
 
 //        mDbOpenHelper.open();
         /**
@@ -86,13 +87,20 @@ public class MainActivity extends AppCompatActivity {
         String name = String.valueOf(editName.getText());
         String major =String.valueOf(editMajor.getText());
 
-                mDbOpenHelper = new DbOpenHelper(MainActivity.this);
                 try {
                     mDbOpenHelper.open();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
-                mDbOpenHelper.DbInsertJoin(id,pwd,name,major,gender,"1");
+                ItemData Itemdatas = new ItemData();
+
+                Itemdatas.setId(id);
+                Itemdatas.setPwd(pwd);
+                Itemdatas.setName(name);
+                Itemdatas.setGender(gender);
+                Itemdatas.setImg("1");
+                Itemdatas.setMajor(major);
+                mDbOpenHelper.DbInsertJoin(Itemdatas);
 
 
         Intent intent  = new Intent(getApplicationContext(),ImageSelectActivity.class); // 이미지 고르기 부분 activity 으로 전환하는 intent

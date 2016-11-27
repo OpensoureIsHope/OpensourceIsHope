@@ -37,16 +37,21 @@ public class DbOpenHelper {
 
     public class DatabaseHelper extends SQLiteOpenHelper {
 
+        private SQLiteDatabase mDB;
+
         // 생성자
         public DatabaseHelper(Context context, String name,  CursorFactory factory, int version) {
+
             super(context, name, factory, version);
+            getReadableDatabase();
         }
 
         // 최초 DB를 만들때 한번만 호출된다.
         @Override
         public void onCreate(SQLiteDatabase db) {
             db.execSQL(Databases.CreateDB._s);
-
+            open();
+            this.mDB = mDB;
 
         }
 
@@ -64,25 +69,36 @@ public class DbOpenHelper {
 
     public DbOpenHelper open() throws SQLException {
         mDBHelper = new DatabaseHelper(mCtx, DATABASE_NAME, null, DATABASE_VERSION);
-        mDB = mDBHelper.getWritableDatabase();
+        mDBHelper.getWritableDatabase();
         return this;
     }
 
 
     // id name number check time image
-    public void DbInsertJoin(String id, String pwd, String name, String major, String gender, String image){
+    public void DbInsertJoin(ItemData itemDatas){
+        String query = "select * from memberinfo";
 
+        open();
 
+        mDBHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("id",id);
-        values.put("pwd", pwd);
-        values.put("name",name);
-        values.put("major",major);
-        values.put("gender",gender);
-        values.put("image", image);
+        System.out.println("체크용용용1");
 
+        Cursor c1 = mDB.rawQuery(query, null);
+        int count = c1.getCount();
+        values.put("ID", count);
+        values.put("id", itemDatas.getId());
+        values.put("pwd", itemDatas.getPwd());
+        values.put("name", itemDatas.getName());
+        values.put("major", itemDatas.getMajor());
+        values.put("gender", itemDatas.getGender());
+        values.put("image", itemDatas.getImg());
 
-        mDB.insert("memberinfo",null,values);
+        System.out.println("체크용용용2");
+
+        mDB.insert("memberinfo", null, values);
+        System.out.println("체크용용용3");
+        mDB.close();
 
     }
 
@@ -119,18 +135,32 @@ public class DbOpenHelper {
 
     }
 //로그인을 위해 체크하는 함수
-    public int DbSelectUser(String id){
-        mDB = mDBHelper.getReadableDatabase();
-        String SQL = "select * "+" from "+"join"+" where id=?";
-        String[] args ={id};
+    public String DbSelectUser(String id){
+        System.out.println("체크용용용4");
+        open();
 
-        Cursor c1 =mDB.rawQuery(SQL, args);
-        int recordCount = c1.getCount();
-        if(recordCount==0)
-            return 0;
-        else
-            return 1;
+        String SQL = "select id, pwd from memberinfo";
+        String a, b;
+        b = "찾지못하였습니다.";
+           mDB = mDBHelper.getReadableDatabase();
+            Cursor c1 = mDB.rawQuery(SQL, null);
+        System.out.println("체크용용용5");
 
+        if (c1.moveToFirst()) {
+                do {
+                    a = c1.getString(0);
+                    b = c1.getString(1);
+
+                    if (a.equals(id)) {
+                        b = c1.getString(1);
+                        break;
+                    }
+                }
+                while (c1.moveToNext());
+            }
+        System.out.println("체크용용용6");
+
+        return b;
     }
     /**
      * devices테이블에 저장되어있는 값들을 반환하는 함수 - 리스트뷰 뿌릴 때 호출
@@ -138,7 +168,7 @@ public class DbOpenHelper {
      */
     public void DbSelectJoin() {
         mDB = mDBHelper.getReadableDatabase();
-        Cursor c = mDB.rawQuery("select * from memberinfo;", null);
+        Cursor c = mDB.rawQuery("select * from memberinfo", null);
 
 
 //        Log.i("dbtest" , "갯수 : " + String.valueOf(c.getCount()));
