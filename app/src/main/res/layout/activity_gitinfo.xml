@@ -32,10 +32,12 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="144dp"
-            android:text="git init을 수행하면 master 줄기가 생성된다."
+            android:text="git init을 수행하면 master 줄기가 생성되고 .git directory가 생긴다."
             android:gravity="left"
             android:textSize="25dp"
-            android:id="@+id/gitTextView" />
+            android:id="@+id/gitTextView"
+            android:textStyle="bold"/>
+
 
     </LinearLayout>
 
