@@ -1,8 +1,11 @@
 package com.semi.sopt_19th_2;
 
 import android.content.Intent;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,13 +13,17 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+import com.semi.sopt_19th_2.Database.DbOpenHelper;
+import com.semi.sopt_19th_2.Database.ItemData;
 
+public class MainActivity extends AppCompatActivity {
+    public DbOpenHelper mDbOpenHelper;
+    int dbVersion =1;
+    private  SQLiteDatabase db;
     private EditText editId;
     private EditText editPwd;
     private EditText editName;
     private EditText editMajor;
-    private RadioGroup groupPart;
     private RadioGroup groupGender;
     private Button submitBtn;
     private Button resetBtn;
@@ -25,7 +32,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mDbOpenHelper = new DbOpenHelper(MainActivity.this);
 
+//        mDbOpenHelper.open();
         /**
          * 초기화
          */
@@ -33,11 +42,9 @@ public class MainActivity extends AppCompatActivity {
         editPwd = (EditText)findViewById(R.id.editPwd);
         editName = (EditText)findViewById(R.id.editName);
         editMajor = (EditText)findViewById(R.id.editMajor);
-        groupPart = (RadioGroup)findViewById(R.id.radioPart); // 라디오버튼 성별 부분 바운딩
         groupGender = (RadioGroup)findViewById(R.id.radioGender); // 라디오버튼 파트부분 바운딩
         submitBtn = (Button)findViewById(R.id.submitBtn);
         resetBtn = (Button)findViewById(R.id.resetBtn);
-
         /**
          * submit 버튼에 대한 클릭이벤트 부여
          * 클릭시 입력한 정보를 Toast로 출력해준다
@@ -73,19 +80,37 @@ public class MainActivity extends AppCompatActivity {
 
                 // 빈칸이 있으면 메세지 출력하고 리스너 종료
 
-                RadioButton tempPart = (RadioButton) findViewById(groupPart.getCheckedRadioButtonId()); // 선택된 라디오 버튼의 ID값을 반환한다.
         RadioButton tempGender = (RadioButton) findViewById(groupGender.getCheckedRadioButtonId()); // 선택된 라디오 버튼의 ID값을 반환한다.
-        String part = tempPart.getText().toString(); // 그 ID의 text부분 부분을 가져와서 대입한다.
         String gender = tempGender.getText().toString(); // 그 ID의 text부분 부분을 가져와서 대입한다.
+        String id = String.valueOf(editId.getText());
+        String pwd = String.valueOf(editPwd.getText());
+        String name = String.valueOf(editName.getText());
+        String major =String.valueOf(editMajor.getText());
+
+                try {
+                    mDbOpenHelper.open();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                ItemData Itemdatas = new ItemData();
+
+                Itemdatas.setId(id);
+                Itemdatas.setPwd(pwd);
+                Itemdatas.setName(name);
+                Itemdatas.setGender(gender);
+                Itemdatas.setImg("1");
+                Itemdatas.setMajor(major);
+                mDbOpenHelper.DbInsertJoin(Itemdatas);
+
 
         Intent intent  = new Intent(getApplicationContext(),ImageSelectActivity.class); // 이미지 고르기 부분 activity 으로 전환하는 intent
         intent.putExtra("id",String.valueOf(editId.getText())); // minhang7을 id에 실어서 넘긴거.
         intent.putExtra("pwd",String.valueOf(editPwd.getText()));
         intent.putExtra("name",String.valueOf(editName.getText()));
         intent.putExtra("major",String.valueOf(editMajor.getText()));
-        intent.putExtra("part",part);
         intent.putExtra("gender",gender);
         // 각 부분의 텍스트 부분을 가져와서 imageselect 액티비티에 추가로 넘김 "id" ... 에 실어서 보냄
+
         startActivity(intent);// 전환
         finish();
     }
@@ -106,10 +131,10 @@ public class MainActivity extends AppCompatActivity {
                 editName.setText("");
                 editMajor.setText("");
                 groupGender.check(R.id.man);
-                groupPart.check(R.id.androidPart);
             }
         });
         //  리셋버튼 누르면 다초기화
 
     }
+
 }

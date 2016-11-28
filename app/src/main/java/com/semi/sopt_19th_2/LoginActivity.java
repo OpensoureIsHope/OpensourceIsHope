@@ -1,6 +1,11 @@
 package com.semi.sopt_19th_2;
 
+import android.content.ClipData;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,7 +14,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.semi.sopt_19th_2.Database.DbOpenHelper;
+import com.semi.sopt_19th_2.Database.ItemData;
+
+import java.util.ArrayList;
+
 public class LoginActivity extends AppCompatActivity {
+    private DbOpenHelper mDbOpenHelper;
+    private ArrayList<ItemData> itemDatas = null;
 
     EditText inputIdEdit;
     EditText inputPwdEdit;
@@ -21,15 +33,19 @@ public class LoginActivity extends AppCompatActivity {
      * 서버연동을 모르기때문에
      * 임시로 id, pwd를 넣어준다
      */
-
-    String id = "minhang7";
-    String pwd = "123123";
+    public String id ;
+    public String pwd ;
 /*minhang7, 123123으로 수정*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);  // activity_login.xml을 가져온다.
+        mDbOpenHelper = new DbOpenHelper(LoginActivity.this);
+
+
+
+//        itemDatas = mDbOpenHelper.DbSelectJoin();
 
         inputIdEdit = (EditText)findViewById(R.id.inputIdEdit);
         inputPwdEdit = (EditText)findViewById(R.id.inputPwdEdit);
@@ -53,11 +69,11 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
 
-                //입력한 id,pwd와 임시로 넣어준 id,pwd가 같을 경우
                 String inputId = String.valueOf(inputIdEdit.getText());
                 String inputPwd = String.valueOf(inputPwdEdit.getText());
+                pwd = mDbOpenHelper.DbSelectUser(inputPwd);
 
-                if(inputId.equals(id) && inputPwd.equals(pwd)){  // id와 pwd가 같은지 확인하는 함수
+                if(pwd.equals(inputPwd)){  // id와 pwd가 같은지 확인하는 함수
                     Toast.makeText(getApplicationContext(),"로그인 성공!!!",Toast.LENGTH_SHORT).show();
 
                 }

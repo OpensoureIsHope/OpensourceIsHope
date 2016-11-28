@@ -2,6 +2,7 @@ package com.semi.sopt_19th_2;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.SQLException;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -10,7 +11,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.semi.sopt_19th_2.Database.DbOpenHelper;
+
 public class ImageSelectActivity extends AppCompatActivity {
+    private DbOpenHelper mDbOpenHelper;
 
     LinearLayout preImgArea;
     LinearLayout nextImgArea; // 버튼같이 사용할 리니어 레이아웃을 매핑할 변수
@@ -93,9 +97,9 @@ public class ImageSelectActivity extends AppCompatActivity {
                                 intent.putExtra("pwd",getData.getExtras().getString("pwd"));
                                 intent.putExtra("name",getData.getExtras().getString("name"));
                                 intent.putExtra("major",getData.getExtras().getString("major"));
-                                intent.putExtra("part",getData.getExtras().getString("part"));
                                 intent.putExtra("gender",getData.getExtras().getString("gender"));
                                 intent.putExtra("img",String.valueOf(imgCount)); // 이미지 카운트한거 넘김
+
 
                                 startActivity(intent);
                             }
