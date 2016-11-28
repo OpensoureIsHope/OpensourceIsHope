@@ -94,8 +94,8 @@ public class LoginActivity extends AppCompatActivity {
         goGithubBtn.setOnClickListener(new View.OnClickListener()
         {
             public void onClick(View view) {
-                Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/OpensoureIsHope/OpensourceIsHope"));
-                startActivity(myIntent);
+                Intent intent = new Intent(getApplicationContext(),OssListActivity.class);
+                startActivity(intent);
         }
         });
     }
