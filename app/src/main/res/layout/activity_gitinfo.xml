@@ -33,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="144dp"
             android:text="git init을 수행하면 master 줄기가 생성된다."
-            android:gravity="left"
+            android:gravity="center"
             android:textSize="25dp"
             android:id="@+id/gitTextView" />
 
