@@ -20,13 +20,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".ImageSelectActivity" />
-        <activity android:name=".infoPageActivity" />
-        <activity android:name=".MyPageActivity"/>
-        <activity android:name=".OssListActivity"/>
-        <activity android:name=".gitInfoActivity"/>
-        <activity android:name="Oss_History"/>
+<
+        <activity
+            android:name=".LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            </activity>
+        <activity android:name=".ImageSelectActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity android:name=".infoPageActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity android:name=".MyPageActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity android:name=".OssListActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity android:name=".gitInfoActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity android:name="Oss_History"
+            android:theme="@style/AppTheme.NoActionBar">
+    </activity>
+
     </application>
 
 </manifest>

@@ -19,7 +19,7 @@ import com.semi.sopt_19th_2.Database.ItemData;
 public class MainActivity extends AppCompatActivity {
     public DbOpenHelper mDbOpenHelper;
     int dbVersion =1;
-    private  SQLiteDatabase db;
+    private  SQLiteDatabase mdb;
     private EditText editId;
     private EditText editPwd;
     private EditText editName;
@@ -33,8 +33,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mDbOpenHelper = new DbOpenHelper(MainActivity.this);
+        mDbOpenHelper.open();
 
-//        mDbOpenHelper.open();
+
         /**
          * 초기화
          */
@@ -87,11 +88,7 @@ public class MainActivity extends AppCompatActivity {
         String name = String.valueOf(editName.getText());
         String major =String.valueOf(editMajor.getText());
 
-                try {
-                    mDbOpenHelper.open();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
+
                 ItemData Itemdatas = new ItemData();
 
                 Itemdatas.setId(id);
