@@ -18,6 +18,7 @@ public class ImageSelectActivity extends AppCompatActivity {
     Button registerBtn;
 
     int imgCount = 0; // 이미지 3개 0,1,2
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
