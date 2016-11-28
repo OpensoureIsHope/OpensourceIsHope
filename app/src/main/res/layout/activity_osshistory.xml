@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:stretchColumns="1">
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_column="1"
+            android:text="연도	"
+            android:textStyle="bold"
+            android:padding="3dip" />
+        <TextView
+            android:text="Keyward"
+            android:textStyle="bold"
+
+            android:gravity="left"
+            android:padding="3dip" />
+        <TextView
+            android:text="내용"
+            android:textStyle="bold"
+            android:gravity="left"
+            android:padding="3dip" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_column="1"
+            android:text="1982"
+            android:padding="3dip"
+             />
+        <TextView
+            android:layout_column="1"
+            android:text="GNU Project"
+            android:padding="3dip"
+            />
+        <TextView
+            android:text="Richard Stallman이 \n Usenet에서 Free Unix \n 프로젝트를 발표했습니다."
+
+            android:padding="3dip"
+            />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_column="1"
+            android:text="1985"
+            android:padding="3dip" />
+
+        <TextView
+            android:text="Free Software 운동"
+            android:padding="3dip" />
+
+        <TextView
+            android:text="리차드 스톨만에 의해 설립. \n 자유 소프트웨어 프로젝트를 지원 \n GPL에 대한 개정을 발표."
+            android:gravity="left"
+            android:padding="3dip" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_column="1"
+            android:text="1991"
+            android:padding="3dip" />
+        <TextView
+            android:text="Linux kernel"
+            android:gravity="left"
+            android:padding="3dip" />
+        <TextView
+            android:text="Linus Torvalds가 개발\n 1991년에 소스 코드 발표."
+            android:gravity="left"
+            android:padding="3dip" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_column="1"
+            android:text="1993"
+            android:padding="3dip" />
+        <TextView
+            android:text="Free BSD"
+            android:gravity="left"
+            android:padding="3dip" />
+        <TextView
+            android:text="FreeBSD의 개발 \n 공식 릴리스는 FreeBSD 1.0."
+            android:gravity="left"
+            android:padding="3dip" />
+
+    </TableRow>
+
+    <TableRow
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_column="1"
+        android:text="1996	"
+        android:padding="3dip" />
+    <TextView
+        android:text="Apache"
+        android:gravity="left"
+        android:padding="3dip" />
+    <TextView
+        android:text="Apache 웹 서버의 첫 번째 \n 버전은 Robert McCool \n 이 개발함."
+        android:gravity="left"
+        android:padding="3dip" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_column="1"
+            android:text="2002	"
+            android:padding="3dip" />
+        <TextView
+            android:text="MediaWiki"
+            android:gravity="left"
+            android:padding="3dip" />
+        <TextView
+            android:text=" 미디어 위키(MediaWiki)라는 \n 이름이 위키피디아 기고가에 \n 의해 만들어짐."
+            android:gravity="left"
+            android:padding="3dip" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_column="1"
+            android:text="2005	"
+            android:padding="3dip" />
+        <TextView
+            android:text="Git"
+            android:gravity="left"
+            android:padding="3dip" />
+        <TextView
+            android:text="리눅스 개발자인 리누스 \n 토발즈가  Git을 만들었다."
+            android:gravity="left"
+            android:padding="3dip" />
+
+    </TableRow>
+
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_column="1"
+            android:text="2008	"
+            android:padding="3dip" />
+        <TextView
+            android:text="OSSProgram"
+            android:gravity="left"
+            android:padding="3dip" />
+        <TextView
+            android:text="Google에서 Chromium, \n Android, Chromium OS \n Release했다."
+            android:gravity="left"
+            android:padding="3dip" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_column="1"
+            android:text="2010	"
+            android:padding="3dip" />
+        <TextView
+            android:text="LibreOffice"
+            android:gravity="left"
+            android:padding="3dip" />
+        <TextView
+            android:text="워드프로세싱, 데이터베이스와 \n 같은 응용프로그램을  포함하는 \n 무료오픈서비스 Release."
+            android:gravity="left"
+            android:padding="3dip" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_column="1"
+            android:text="2013	"
+            android:padding="3dip" />
+        <TextView
+            android:text="Firefox OS"
+            android:gravity="left"
+            android:padding="3dip" />
+        <TextView
+            android:text="Mozilla Foundation이 \n mobile phone \n operating system을 release."
+            android:gravity="left"
+            android:padding="3dip" />
+
+    </TableRow>
+</TableLayout>

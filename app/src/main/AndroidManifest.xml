@@ -26,7 +26,7 @@
         <activity android:name=".MyPageActivity"/>
         <activity android:name=".OssListActivity"/>
         <activity android:name=".gitInfoActivity"/>
-
+        <activity android:name="Oss_History"/>
     </application>
 
 </manifest>

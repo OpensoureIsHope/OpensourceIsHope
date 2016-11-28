@@ -45,7 +45,7 @@ public class OssListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if(position == 0) {
-                    Intent intent = new Intent(getApplicationContext(), ImageSelectActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), Oss_History.class);
                     startActivity(intent);
                 }
                 if(position == 1) {
