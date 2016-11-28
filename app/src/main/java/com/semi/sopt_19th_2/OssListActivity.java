@@ -29,9 +29,9 @@ public class OssListActivity extends AppCompatActivity {
         adapter = new OssList_Adapter(this);
 
         Resources res = getResources();
-        adapter.addItem(new OssList_ItemData(res.getDrawable(R.drawable.oss),"오픈소스 역사","OSS history"));
-        adapter.addItem(new OssList_ItemData(res.getDrawable(R.drawable.oss_people),"인물 사전","Wiki of people who contibute to OSS"));
-        adapter.addItem(new OssList_ItemData(res.getDrawable(R.drawable.git),"Git 기능","Functions of Git"));
+        adapter.addItem(new OssList_ItemData(res.getDrawable(R.drawable.open),"오픈소스 역사","OSS history"));
+        adapter.addItem(new OssList_ItemData(res.getDrawable(R.drawable.people),"인물 사전","Wiki of people who contibute to OSS"));
+        adapter.addItem(new OssList_ItemData(res.getDrawable(R.drawable.gitlogo),"Git 기능","Functions of Git"));
         adapter.addItem(new OssList_ItemData(res.getDrawable(R.drawable.github),"to GitHub","OpensoureIsHope"));
         adapter.addItem(new OssList_ItemData(res.getDrawable(R.drawable.mypage),"마이페이지","My Page"));
 
