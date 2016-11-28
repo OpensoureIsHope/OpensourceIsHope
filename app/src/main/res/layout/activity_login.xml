@@ -63,7 +63,7 @@
             android:inputType="numberPassword"
             android:hint="패스워드"/>
     </LinearLayout>
-<!--paddingLeft : 글자의 위치 변경-->
+    <!--paddingLeft : 글자의 위치 변경-->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -84,14 +84,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:layout_marginLeft="10dp"
-            android:text="github"
+            android:text="OSS list"
             android:textAlignment="center" />
-
-        <Button
-            android:text="OSS info"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/infoPageBtn" />
 
         <Button
             android:id="@+id/signUpBtn"
@@ -100,8 +94,6 @@
             android:layout_height="wrap_content"
             android:text="Sign up"
             android:layout_weight="0.02" />
-
-
 
     </LinearLayout>
 

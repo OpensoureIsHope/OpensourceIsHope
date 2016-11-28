@@ -1,22 +1,15 @@
 package com.semi.sopt_19th_2;
 
-import android.content.ClipData;
+
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.SQLException;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
-import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.semi.sopt_19th_2.Database.DbOpenHelper;
 import com.semi.sopt_19th_2.Database.ItemData;
-
 import java.util.ArrayList;
 
 public class LoginActivity extends AppCompatActivity {
@@ -28,7 +21,7 @@ public class LoginActivity extends AppCompatActivity {
     Button loginBtn;
     Button signUpBtn;
     Button goGithubBtn;
-    Button infoPageBtn;
+
     /**
      * 아직 2차세미나!!
      * 서버연동을 모르기때문에
@@ -52,9 +45,8 @@ public class LoginActivity extends AppCompatActivity {
         inputPwdEdit = (EditText)findViewById(R.id.inputPwdEdit);
         loginBtn = (Button)findViewById(R.id.loginBtn);
         signUpBtn = (Button)findViewById(R.id.signUpBtn);
-
         goGithubBtn = (Button)findViewById(R.id.goGitub);
-        infoPageBtn = (Button)findViewById(R.id.infoPageBtn);
+
         /*  findViewById로 id부여한 view들을 가져와서 사용할수 있게 한다.*/
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
@@ -102,12 +94,6 @@ public class LoginActivity extends AppCompatActivity {
         }
         });
 
-        infoPageBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),infoPageActivity.class);
-                startActivity(intent);
-            }
-        });
+
     }
 }

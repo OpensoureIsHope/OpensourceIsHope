@@ -49,11 +49,11 @@ public class OssListActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
                 if(position == 1) {
-                    Intent intent = new Intent(getApplicationContext(), ImageSelectActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), infoPageActivity.class);
                     startActivity(intent);
                 }
                 if(position == 2) {
-                    Intent intent = new Intent(getApplicationContext(), ImageSelectActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), gitInfoActivity.class);
                     startActivity(intent);
                 }
                 if(position == 3) {
