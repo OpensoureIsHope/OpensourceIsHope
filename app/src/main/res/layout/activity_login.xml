@@ -76,24 +76,26 @@
             android:id="@+id/loginBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@color/ThemeColor"
             android:text="Login"/>
 
         <Button
             android:id="@+id/goGitub"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
             android:layout_marginLeft="10dp"
             android:text="OSS list"
+            android:background="@color/ThemeColor"
+
             android:textAlignment="center" />
 
         <Button
             android:id="@+id/signUpBtn"
             android:layout_marginLeft="10dp"
-            android:layout_width="79dp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:text="Sign up"
-            android:layout_weight="0.02" />
+            android:background="@color/ThemeColor" />
 
     </LinearLayout>
 

@@ -43,22 +43,26 @@
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center">
+        android:gravity="center"
+        android:weightSum="1">
 
         <Button
             android:id="@+id/BeforeBtn"
-            android:layout_width="100dp"
+            android:layout_width="150dp"
             android:layout_height="50dp"
             android:text="이전"
+            android:background="@color/ThemeColor"
             />
 
         <Button
             android:id="@+id/AfterBtn"
-            android:layout_marginLeft="70dp"
-            android:layout_width="100dp"
+            android:layout_marginLeft="20dp"
+            android:layout_width="150dp"
             android:layout_height="50dp"
             android:text="다음"
-            />
+            android:background="@color/ThemeColor"
+
+           />
 
     </LinearLayout>
 

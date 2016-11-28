@@ -78,15 +78,15 @@ public class DbOpenHelper {
     public void DbInsertJoin(ItemData itemDatas){
         String query = "select * from memberinfo";
 
-        open();
 
         mDBHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         System.out.println("체크용용용1");
+        open();
 
         Cursor c1 = mDB.rawQuery(query, null);
-        int count = c1.getCount();
-        values.put("ID", count);
+       // int count = c1.getCount();
+        //values.put("ID", count);
         values.put("id", itemDatas.getId());
         values.put("pwd", itemDatas.getPwd());
         values.put("name", itemDatas.getName());
@@ -169,7 +169,7 @@ public class DbOpenHelper {
     public void DbSelectJoin() {
         mDB = mDBHelper.getReadableDatabase();
         Cursor c = mDB.rawQuery("select * from memberinfo", null);
-
+        open();
 
 //        Log.i("dbtest" , "갯수 : " + String.valueOf(c.getCount()));
 
