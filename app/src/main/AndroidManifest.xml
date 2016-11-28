@@ -40,7 +40,7 @@
         <activity android:name=".gitInfoActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
-        <activity android:name="Oss_History"
+        <activity android:name=".Oss_History"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
     </activity>
 
