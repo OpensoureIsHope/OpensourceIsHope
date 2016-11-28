@@ -19,7 +19,7 @@ public class SplashActivity extends AppCompatActivity {
 
 
             public void run() { //다른 엑티비티로 전환
-                Intent intent = new Intent(getApplicationContext(),OssListActivity.class); // 다음에 불러올 class 파일을 지정합니다.
+                Intent intent = new Intent(getApplicationContext(),LoginActivity.class); // 다음에 불러올 class 파일을 지정합니다.
 
                 startActivity(intent);
                 finish(); //activity 끝냄
