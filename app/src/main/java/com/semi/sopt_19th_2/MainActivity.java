@@ -35,10 +35,10 @@ public class MainActivity extends AppCompatActivity {
         mDbOpenHelper = new DbOpenHelper(MainActivity.this);
         mDbOpenHelper.open();
 
-
         /**
          * 초기화
          */
+
         editId = (EditText)findViewById(R.id.editId);
         editPwd = (EditText)findViewById(R.id.editPwd);
         editName = (EditText)findViewById(R.id.editName);
@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         groupGender = (RadioGroup)findViewById(R.id.radioGender); // 라디오버튼 파트부분 바운딩
         submitBtn = (Button)findViewById(R.id.submitBtn);
         resetBtn = (Button)findViewById(R.id.resetBtn);
+
         /**
          * submit 버튼에 대한 클릭이벤트 부여
          * 클릭시 입력한 정보를 Toast로 출력해준다
@@ -76,8 +77,6 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "전공을 입력해주세요.", Toast.LENGTH_SHORT).show();
                     return;
                 } // 각 항목을 입력하기 위한 창.
-
-
 
                 // 빈칸이 있으면 메세지 출력하고 리스너 종료
 
@@ -112,8 +111,6 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 });
-
-
 
         /**
          * reset 버튼에 대한 클릭이벤트 부여
