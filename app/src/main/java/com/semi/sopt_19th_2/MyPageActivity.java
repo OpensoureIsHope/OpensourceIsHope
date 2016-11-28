@@ -5,6 +5,8 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -27,6 +29,7 @@ public class MyPageActivity extends AppCompatActivity {
     TextView textViewTest;
     ItemData listViewItem = new ItemData();
     private ArrayList<ItemData> itemDatas = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +51,7 @@ public class MyPageActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         mDbOpenHelper.DbSelectJoin();
+
 
         Intent getData = getIntent(); //imageselectactivity에서 넘겨온 인텐트 객체를 참조하기위해
         String id = getData.getExtras().getString("id"); //받아온 내용 대입.(minhang7)
@@ -72,5 +76,6 @@ public class MyPageActivity extends AppCompatActivity {
         textViewMajor.setText(major);
         textViewGender.setText(gender);
         // 값 변경
+
     }
 }

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.semi.sopt_19th_2.gitInfoActivity"
+    android:orientation="vertical"
+    android:weightSum="10">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9.35"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:src="@drawable/gitinit"
+            android:id="@+id/imageView2" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="10"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="144dp"
+            android:text="git init을 수행하면 master 줄기가 생성된다."
+            android:gravity="center"
+            android:textSize="25dp"
+            android:id="@+id/gitTextView" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/BeforeBtn"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:text="이전"
+            />
+
+        <Button
+            android:id="@+id/AfterBtn"
+            android:layout_marginLeft="70dp"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:text="다음"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>
